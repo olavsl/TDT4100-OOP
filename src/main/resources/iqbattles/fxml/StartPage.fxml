@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #C6DABF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iqbattles.controllers.SceneController">
+   <children>
+      <Button layoutX="239.0" layoutY="241.0" mnemonicParsing="false" onAction="#switchToCreateUser" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: #0D1F2D;" text="Create new profile" textFill="#c6dabf" />
+      <Button layoutX="239.0" layoutY="168.0" mnemonicParsing="false" onAction="#switchToLogIn" style="-fx-background-color: #0D1F2D;" text="Log In" textFill="#c6dabf">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+
+   </children>
+</AnchorPane>

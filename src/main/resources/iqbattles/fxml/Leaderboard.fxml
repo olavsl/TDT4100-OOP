@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #c6dabf;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iqbattles.controllers.LeaderboardController">
+   <children>
+      <Label layoutX="210.0" layoutY="29.0" style="-fx-text-fill: #0D1F2D;" text="Leaderboards">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Button layoutX="486.0" layoutY="329.0" mnemonicParsing="false" onAction="#switchToUserProfile" prefHeight="45.0" prefWidth="83.0" style="-fx-background-color: #0d1f2d; -fx-text-fill: #FFFFFF;" text="Profile" />
+      <TableView fx:id="leaderboard" layoutX="50.0" layoutY="112.0" prefHeight="200.0" prefWidth="500.0" style="-fx-background-color: #c6dabf; -fx-text-fill: #048A81;">
+        <columns>
+          <TableColumn fx:id="namesColumn" prefWidth="122.0" style="-fx-alignment: CENTER;" text="Player" />
+          <TableColumn fx:id="rankColumn" prefWidth="121.0" style="-fx-alignment: CENTER;" text="Rank" />
+            <TableColumn fx:id="ratingColumn" prefWidth="121.0" style="-fx-alignment: CENTER;" text="IQ" />
+            <TableColumn fx:id="gamesColumn" prefWidth="121.0" style="-fx-alignment: CENTER;" text="Games played" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
