@@ -22,9 +22,13 @@ public class PlayerProfileController extends SceneController {
     private Parent root;
 
     @FXML
-    Label displayUsername, displayRating, displayRanking, displayGamesPlayed;
+    private Label displayUsername, displayRating, displayRanking, displayGamesPlayed;
 
-    // Display player info on user profile
+    /**
+     * Display player info on user profile
+     * 
+     * @param player
+     */
     public void updateUserProfile(Player player) {
         displayUsername.setText(player.getUsername());
         displayRating.setText(Integer.toString(player.getRating()));
