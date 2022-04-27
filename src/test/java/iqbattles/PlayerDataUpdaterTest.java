@@ -13,7 +13,7 @@ public class PlayerDataUpdaterTest {
     @DisplayName("Check that it returns an ArrayList of Strings with the current players new statistics")
     void testGetPlayersFromFile() {
         final PlayerDataUpdater pdu = new PlayerDataUpdater();
-        Player player = new Player("abcd", "xxxxxxxxxxxxxxxx", 103, 0, 1);
+        Player player = new Player("abcd", "xxxx", 103, 0, 1);
         ArrayList<Player> players = new ArrayList<>();
 
         try {

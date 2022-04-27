@@ -53,6 +53,11 @@ public class Tasks {
         }
     }
 
+    // Setter
+    public void setTask(int n, Task task) {
+        this.tasks.set(n, task);
+    }
+
     // Getters
     public ArrayList<Task> getTasks() {
         return this.tasks;

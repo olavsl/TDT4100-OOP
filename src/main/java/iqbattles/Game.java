@@ -64,23 +64,39 @@ public class Game {
 
     // CALCULATIONS
 
-    // Returns a new random number chosen from a gaussian distribution
+    // Returns a new random number chosen from a gaussian distribution around the players rating
     public int randRating(int playerRating) {
         Random rand = new Random();
         int opponentsRating = (int) (rand.nextGaussian() * 10 + playerRating);
-        
-        if (opponentsRating < 0) {
-            opponentsRating = 0;
-        } else if (opponentsRating > 200) {
-            opponentsRating = 200;
+
+        while (!allowedRating(playerRating, opponentsRating)) {
+            opponentsRating = (int) (rand.nextGaussian() * 10 + playerRating);
         }
 
         this.opponentsRating = opponentsRating;
         return opponentsRating;
     }
 
+    public boolean allowedRating(int playerRating, int opponentRating) {
+        if (opponentRating < 0 || opponentRating > 200) {
+            return false;
+        }
+
+        if (Math.abs(playerRating - opponentRating) > 50) {
+            return false;
+        }
+
+        return true;
+    }
+
     // Individual task score
-    private double taskScore(int difficulty, int answerTime) {
+    public double taskScore(int difficulty, int answerTime) {
+        if (answerTime < 0) {
+            throw new IllegalArgumentException("Can't divide by zero!");
+        } else if (answerTime > 60) {
+            return 0;
+        }
+
         // Negative exponential to give players who answer fast a higher score
         double multiplier = -3.14 / (1 - 4.14 * Math.exp(0.02 * answerTime));
 
@@ -91,9 +107,9 @@ public class Game {
     public int gameScore() {
         int gameScore = 0;
 
-        for (int i = 0; i < answers.size(); i++) {
-            if (answers.get(i) == 1) {
-                gameScore += taskScore(this.tasks.getTask(i).getDifficulty(), this.answerTimes.get(i));
+        for (int i = 0; i < this.answers.size(); i++) {
+            if (this.answers.get(i) == 1) {
+                gameScore += Math.round(taskScore(this.tasks.getTask(i).getDifficulty(), this.answerTimes.get(i)));
             }
         }
 
@@ -162,6 +178,10 @@ public class Game {
     }
 
     // Setters
+    public void setTasks(Tasks tasks) {
+        this.tasks = tasks;
+    }
+
     public void setNumCorrectAnswers(ArrayList<Integer> answers) {
         int result = 0;
         
