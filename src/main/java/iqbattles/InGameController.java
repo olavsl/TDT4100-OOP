@@ -14,7 +14,6 @@ import javafx.scene.input.MouseEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class InGameController {
 
@@ -41,7 +40,7 @@ public class InGameController {
         this.tasks = new Tasks(this.gameLength);
 
         // Creating game object
-        this.game = new Game(this.tasks, this.gameLength);
+        this.game = new Game(this.tasks);
 
         showTask(this.tasks.getTask(this.currentTask).getID());
 
@@ -61,22 +60,13 @@ public class InGameController {
 
         taskImage.setImage(imageTask);
 
-        
-
         // Display images for each of the answer options in random order. Correct answers have id "1".
-        ArrayList<Integer> occupiedTasks = new ArrayList<>();
+        ArrayList<Integer> randAnswerOptionOrder = this.game.randomizeCorrectAnswers();
+
         for (int i = 1; i < 7; i++) {
-            Random rand = new Random();
-            int randInt = rand.nextInt(1, 7);
+            Image imageAns = this.filehandler.getImage("answers/ans" + id + "-" + randAnswerOptionOrder.get(i - 1) + ".jpg");
 
-            while (occupiedTasks.contains(randInt)) {
-                randInt = rand.nextInt(1, 7);
-            }
-            occupiedTasks.add(randInt);
-
-            Image imageAns = this.filehandler.getImage("answers/ans" + id + "-" + randInt + ".jpg");
-
-            final int n = randInt;
+            final int n = randAnswerOptionOrder.get(i - 1);
 
             ansImageList.get(i - 1).setImage(imageAns);
 

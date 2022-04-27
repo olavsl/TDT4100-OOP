@@ -8,7 +8,6 @@ public class Game {
     
     private int opponentsRating;
     private Tasks tasks;
-    private ArrayList<Integer> correctAnswers = new ArrayList<>();
     private ArrayList<Integer> answers = new ArrayList<>();
     private ArrayList<Integer> answerTimes = new ArrayList<>();
     private int numCorrectAnswers;
@@ -19,9 +18,9 @@ public class Game {
     private CountDownTimer task = new CountDownTimer(60);
     private Timer timer = new Timer(false);
 
-    public Game(Tasks tasks, int gameLength) {
+    public Game(Tasks tasks) {
         this.tasks = tasks;
-        this.gameLength = gameLength;
+        this.gameLength = tasks.getTasks().size();
     }
 
     public void startTimer() {
@@ -40,16 +39,14 @@ public class Game {
     // Randomize order of correct answers
     public ArrayList<Integer> randomizeCorrectAnswers() {
         ArrayList<Integer> result = new ArrayList<>();
-        
-        this.correctAnswers.clear();
 
         Random rand = new Random();
 
-        for (int i = 0; i < gameLength; i++) {
-            int randTaskNum = rand.nextInt(gameLength);
+        for (int i = 0; i < 6; i++) {
+            int randTaskNum = rand.nextInt(1, 7);
 
             while(result.contains(randTaskNum)) {
-                randTaskNum = rand.nextInt(gameLength);
+                randTaskNum = rand.nextInt(1, 7);
             }
 
             result.add(randTaskNum);
@@ -76,7 +73,7 @@ public class Game {
     }
 
     // Individual task score
-    public double taskScore(int difficulty, int answerTime) {
+    private double taskScore(int difficulty, int answerTime) {
         // Negative exponential to give players who answer fast a higher score
         double multiplier = -3.14 / (1 - 4.14 * Math.exp(0.02 * answerTime));
 
