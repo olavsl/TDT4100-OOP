@@ -16,6 +16,11 @@ public class Player{
         this.gamesPlayed = gamesPlayed;
     }
 
+    @Override
+    public String toString() {
+        return this.username + this.password + this.rating + this.ranking + this.gamesPlayed;
+    }
+
     // Setters
     public void setUsername(String username) {
         //Innkapsling av tilstand
