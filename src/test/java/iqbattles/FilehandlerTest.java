@@ -56,13 +56,10 @@ public class FilehandlerTest {
     // @DisplayName("Test getting Images from directory")
     // public void testGetImage() {
     //     String path = System.getProperty("user.dir");
-    //     Image image = new Image(path + "src/main/resources/testImage.jpg");
-    //     // Image image = new Image(getClass().getResource("testImage.jpg").toString());
-
-    //     String imageString = image.toString();
+    //     Image image = new Image(path + "/src/main/resources/iqbattles/testImage.jpg");
 
     //     try {
-    //         assertEquals(imageString, this.filehandler.getImage("testImage.jpg").toString());
+    //         assertEquals(image, this.filehandler.getImage("testImage.jpg"));
     //     } catch (IOException e) {}
     // }
 
