@@ -28,8 +28,7 @@ public class Tasks {
 
             try {
                 // Get task data from file "tasks.txt"
-                String path = System.getProperty("user.dir");
-                File taskFile = new File(path + "/src/main/resources/iqbattles/tasks.txt");
+                File taskFile = new File("src/main/resources/iqbattles/tasks.txt");
                 Scanner reader = new Scanner(taskFile);
                 for (int j = 0; j < randNum; j++) {
                     reader.nextLine();
@@ -37,7 +36,6 @@ public class Tasks {
                 String strTaskData = reader.nextLine();
                 String[] taskData = strTaskData.split(" ", 4);
                 reader.close();
-
 
                 // Create new Task object
                 int taskID = Integer.parseInt(taskData[0]);
