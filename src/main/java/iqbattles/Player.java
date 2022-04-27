@@ -18,7 +18,7 @@ public class Player{
 
     @Override
     public String toString() {
-        return this.username + this.password + this.rating + this.ranking + this.gamesPlayed;
+        return this.username + " " + this.password + " " + this.rating + " " + this.ranking + " " + this.gamesPlayed;
     }
 
     // Setters
