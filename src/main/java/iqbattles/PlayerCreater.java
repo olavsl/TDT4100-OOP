@@ -31,7 +31,7 @@ public class PlayerCreater {
         }
         this.players.add(username);
 
-        // CREATE INCAPSULATION OFF PASSWORD
+        // Encrypting given password with "Secure Hashing Algorithm-256"
         MessageDigest md = MessageDigest.getInstance("SHA-256");
         String hashedPassword = ToHexString.toHexString(md.digest(password.getBytes(StandardCharsets.UTF_8)));
 
