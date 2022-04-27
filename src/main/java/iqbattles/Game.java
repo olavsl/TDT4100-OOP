@@ -119,7 +119,7 @@ public class Game {
 
     public int opponentGameScore(int opponentRating, Tasks tasks) {
         int opponentGameScore = 0;
-        double probabilityOfBeingCorrect = 1 / (1 + Math.pow(10, (100 - opponentRating) / 40));
+        double probabilityOfBeingCorrect = 1 / (1 + Math.pow(100, (100 - opponentRating) / 40));
         int averageAnswerTime = (int) (60 - Math.round((1 / (1 + Math.pow(10, (100 - opponentRating) / 40))) * 60));
 
         Random rand = new Random();
