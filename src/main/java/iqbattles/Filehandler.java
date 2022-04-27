@@ -52,7 +52,7 @@ public class Filehandler implements Filehandling {
     }
 
     public Image getImage(String fileName) throws IOException {
-        return new Image(fileName);
+        return new Image(getClass().getResource(fileName).toString());
     }
 
     public ArrayList<Player> getPlayersFromFile(String fileName) throws IOException {

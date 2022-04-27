@@ -57,7 +57,7 @@ public class InGameController {
     // Display the task with the current index
     public void showTask(int id) throws IOException {
         // Get image
-        Image imageTask = this.filehandler.getImage(getClass().getResource("tasks/task" + id + ".jpg").toString());
+        Image imageTask = this.filehandler.getImage("tasks/task" + id + ".jpg");
 
         taskImage.setImage(imageTask);
 
@@ -74,7 +74,7 @@ public class InGameController {
             }
             occupiedTasks.add(randInt);
 
-            Image imageAns = this.filehandler.getImage(getClass().getResource("answers/ans" + id + "-" + randInt + ".jpg").toString());
+            Image imageAns = this.filehandler.getImage("answers/ans" + id + "-" + randInt + ".jpg");
 
             final int n = randInt;
 
