@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import java.util.ArrayList?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iqbattles.controllers.InGameController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iqbattles.InGameController">
    <fx:define>
       <ArrayList fx:id="ansImageList">
          <ImageView fx:id="ansImage0" fitHeight="60.0" fitWidth="60.0" layoutX="200.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true" />

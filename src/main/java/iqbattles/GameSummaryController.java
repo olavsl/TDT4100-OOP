@@ -1,4 +1,4 @@
-package iqbattles.controllers;
+package iqbattles;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -6,10 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import iqbattles.Filehandler;
-import iqbattles.Game;
-import iqbattles.Player;
-import iqbattles.PlayerDataUpdater;
 import javafx.scene.Node;
 import java.util.ArrayList;
 import java.io.IOException;
@@ -65,7 +61,7 @@ public class GameSummaryController extends SceneController {
     }
 
     public void switchToPlayerProfile(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../resources/iqbattles/fxml/PlayerProfile.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/PlayerProfile.fxml"));
         root = loader.load();
 
         // Changing the data of the instance of UserProfileController belonging to UserProfile.fxml

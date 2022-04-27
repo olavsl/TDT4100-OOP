@@ -1,9 +1,8 @@
-package iqbattles.controllers;
+package iqbattles;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
-import iqbattles.Player;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
 import javafx.scene.Node;
@@ -32,9 +31,8 @@ public class SceneController {
 
     @FXML
     private void switchToLogIn(ActionEvent event) throws IOException {
-        System.out.println("AAAAAAAAAAAAAAAA");
-        // root = FXMLLoader.load(getClass().getResource("fxml/LogIn.fxml"));
-        root = FXMLLoader.load(getClass().getResource("LogIn.fxml"));
+        System.out.println((getClass().getResource("answers/ans" + 2 + "-" + 3 + ".jpg")).toString());
+        root = FXMLLoader.load(getClass().getResource("fxml/LogIn.fxml"));
         switchScene(event, stage, scene, root);
     }
 

@@ -16,8 +16,7 @@ public class Filehandler implements Filehandling {
 
     public ArrayList<String> readFromFile(String fileName) throws FileNotFoundException, IOException {
         ArrayList<String> readLines = new ArrayList<>();
-        String path = System.getProperty("user.dir");
-        File file = new File(path + "/src/main/resources/iqbattles/" + fileName);
+        File file = new File("src/main/resources/iqbattles/" + fileName);
         BufferedReader reader = new BufferedReader(new FileReader(file));
 
         String tempLine;
@@ -32,8 +31,7 @@ public class Filehandler implements Filehandling {
 
     public void writeToFile(String fileName, ArrayList<String> lines) {
         try {
-            String path = System.getProperty("user.dir");
-            FileWriter fw = new FileWriter(path + "/src/main/resources/iqbattles/" + fileName, true);
+            FileWriter fw = new FileWriter("src/main/resources/iqbattles/" + fileName, true);
             BufferedWriter writer = new BufferedWriter(fw);
 
             for (String line : lines) {
@@ -48,8 +46,7 @@ public class Filehandler implements Filehandling {
     }
 
     public void clearFile(String fileName) throws FileNotFoundException {
-        String path = System.getProperty("user.dir");
-        PrintWriter pw = new PrintWriter(path + "/src/main/resources/iqbattles/" + fileName);
+        PrintWriter pw = new PrintWriter("src/main/resources/iqbattles/" + fileName);
         pw.print("");
         pw.close();
     }

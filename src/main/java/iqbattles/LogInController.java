@@ -1,4 +1,4 @@
-package iqbattles.controllers;
+package iqbattles;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -11,8 +11,6 @@ import javafx.scene.control.PasswordField;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.stage.Stage;
-import iqbattles.LogInVerifier;
-import iqbattles.Player;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
 
@@ -41,9 +39,8 @@ public class LogInController extends SceneController {
         }
     }
 
-    @Override
     public void switchToPlayerProfile(ActionEvent event, Player player) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../resources/iqbattles/fxml/PlayerProfile.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/PlayerProfile.fxml"));
         root = loader.load();
 
         // Changing the data of the instance of PlayerProfileController belonging to UserProfile.fxml

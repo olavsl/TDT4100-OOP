@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #C6DABF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iqbattles.controllers.CreatePlayerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #C6DABF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iqbattles.CreatePlayerController">
    <children>
       <Button layoutX="272.0" layoutY="286.0" mnemonicParsing="false" onAction="#createPlayer" style="-fx-background-color: #0D1F2D;" text="CREATE" textFill="#c6dabf" />
       <TextField fx:id="username" layoutX="226.0" layoutY="134.0" style="-fx-background-color: FFFFFF;" />

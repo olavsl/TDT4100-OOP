@@ -1,8 +1,7 @@
-package iqbattles.controllers;
+package iqbattles;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import iqbattles.PlayerCreater;
 import javafx.scene.control.Label;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;

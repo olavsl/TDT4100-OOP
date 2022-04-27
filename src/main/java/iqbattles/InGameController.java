@@ -1,4 +1,4 @@
-package iqbattles.controllers;
+package iqbattles;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -15,11 +15,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
-
-import iqbattles.Filehandler;
-import iqbattles.Game;
-import iqbattles.Player;
-import iqbattles.Tasks;
 
 public class InGameController {
 
@@ -62,8 +57,7 @@ public class InGameController {
     // Display the task with the current index
     public void showTask(int id) throws IOException {
         // Get image
-        String path = System.getProperty("user.dir");
-        Image imageTask = this.filehandler.getImage(path + "/src/main/resources/iqbattles/tasks/task" + id + ".jpg");
+        Image imageTask = this.filehandler.getImage(getClass().getResource("tasks/task" + id + ".jpg").toString());
 
         taskImage.setImage(imageTask);
 
@@ -80,7 +74,7 @@ public class InGameController {
             }
             occupiedTasks.add(randInt);
 
-            Image imageAns = this.filehandler.getImage(path + "/src/main/resources/iqbattles/answers/ans" + id + "-" + randInt + ".jpg");
+            Image imageAns = this.filehandler.getImage(getClass().getResource("answers/ans" + id + "-" + randInt + ".jpg").toString());
 
             final int n = randInt;
 
@@ -132,7 +126,7 @@ public class InGameController {
 
         this.game.setNumCorrectAnswers(this.game.getAnswers());
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../resources/iqbattles/fxml/GameSummary.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/GameSummary.fxml"));
         root = loader.load();
 
         // Changing the data of the instance of GameSummaryController belonging to UserProfile.fxml

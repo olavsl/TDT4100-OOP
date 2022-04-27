@@ -1,4 +1,4 @@
-package iqbattles.controllers;
+package iqbattles;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,9 +13,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import iqbattles.Filehandler;
-import iqbattles.LeaderBoardUpdater;
-import iqbattles.Player;
 import javafx.scene.Node;
 
 public class LeaderboardController extends SceneController {
@@ -61,7 +58,7 @@ public class LeaderboardController extends SceneController {
 
     public void switchToUserProfile(ActionEvent event) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../resources/iqbattles/fxml/PlayerProfile.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/PlayerProfile.fxml"));
         root = loader.load();
 
         // Changing the data of the instance of GameSummaryController belonging to UserProfile.fxml

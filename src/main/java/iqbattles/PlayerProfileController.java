@@ -1,4 +1,4 @@
-package iqbattles.controllers;
+package iqbattles;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +11,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import iqbattles.Player;
 
 public class PlayerProfileController extends SceneController {
     
@@ -45,7 +44,7 @@ public class PlayerProfileController extends SceneController {
     // Start the game
     public void startGame(ActionEvent event) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../resources/iqbattles/fxml/InGame.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/InGame.fxml"));
         root = loader.load();
 
         // Changing the data of the instance of InGameController belonging to InGame.fxml
@@ -63,7 +62,7 @@ public class PlayerProfileController extends SceneController {
 
     public void switchToLeaderboard(ActionEvent event) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../resources/iqbattles/fxml/Leaderboard.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Leaderboard.fxml"));
         root = loader.load();
 
         // Changing the data of the instance of GameSummaryController belonging to UserProfile.fxml
