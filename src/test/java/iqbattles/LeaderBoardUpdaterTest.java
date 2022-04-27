@@ -1,12 +1,10 @@
-package test.java.iqbattles;
+package iqbattles;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import main.java.iqbattles.LeaderBoardUpdater;
-import main.java.iqbattles.Player;
 
 public class LeaderBoardUpdaterTest {
     

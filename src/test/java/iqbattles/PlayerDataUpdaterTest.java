@@ -1,4 +1,4 @@
-package test.java.iqbattles;
+package iqbattles;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,9 +6,6 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import main.java.iqbattles.Player;
-import main.java.iqbattles.PlayerDataUpdater;
 
 public class PlayerDataUpdaterTest {
 

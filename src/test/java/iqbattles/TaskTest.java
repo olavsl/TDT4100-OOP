@@ -1,15 +1,13 @@
-package test.java.iqbattles;
+package iqbattles;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import main.java.iqbattles.Task;
-
 public class TaskTest {
 
-    private boolean checkTaskState(Task task, int id, int difficulty, int expectedSolveTime) {
-        return task.getID() == id && task.getDifficulty() == difficulty && task.getExpectedSolveTime() == expectedSolveTime;
+    private boolean checkTaskState(Task task, int id, int difficulty, int score) {
+        return task.getID() == id && task.getDifficulty() == difficulty && task.getScore() == score;
     }
 
     @Test
@@ -34,7 +32,7 @@ public class TaskTest {
         });
 
         assertThrows(IllegalArgumentException.class, () -> {
-            new Task(0, 1, 61);
+            new Task(0, 1, 101);
         });
     }
 

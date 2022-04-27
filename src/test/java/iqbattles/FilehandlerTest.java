@@ -1,9 +1,8 @@
-package test.java.iqbattles;
+package iqbattles;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import main.java.iqbattles.Filehandler;
 import java.io.FileNotFoundException;
 
 import java.util.ArrayList;

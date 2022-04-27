@@ -1,4 +1,4 @@
-package test.java.iqbattles;
+package iqbattles;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;

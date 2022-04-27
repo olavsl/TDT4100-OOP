@@ -1,4 +1,4 @@
-package test.java.iqbattles;
+package iqbattles;
 
 import org.junit.jupiter.api.Test;
 
