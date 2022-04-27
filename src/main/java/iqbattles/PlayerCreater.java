@@ -37,7 +37,7 @@ public class PlayerCreater {
 
         Player player = new Player(username, hashedPassword, 100, 0, 0);
 
-        addNewPlayerToFile(player);
+        addNewPlayerToFile(player, "players.txt");
 
         return "createdPlayer";
     }
@@ -55,11 +55,11 @@ public class PlayerCreater {
         return usernames;
     }
 
-    public void addNewPlayerToFile(Player player) {
+    public void addNewPlayerToFile(Player player, String fileName) {
         // Writing username to file using filehandler
         String playerInfo = player.getUsername() + " " + player.getHashedPassword() + " " + player.getRating() + " 0 0";
         ArrayList<String> input = new ArrayList<>(Arrays.asList(playerInfo));
-        filehandler.writeToFile("players.txt", input);
+        filehandler.writeToFile(fileName, input);
     }
 
 }
