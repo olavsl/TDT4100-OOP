@@ -28,11 +28,11 @@ public class LeaderBoardUpdaterTest {
         preSortedPlayers.add(p2);
         preSortedPlayers.add(p1);
 
-        assertNotEquals(players, preSortedPlayers);
+        assertNotEquals(preSortedPlayers, players);
 
         lbu.rankSort(players);
 
-        assertEquals(players, preSortedPlayers);
+        assertEquals(preSortedPlayers, players);
 
     }
 }

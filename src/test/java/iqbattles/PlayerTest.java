@@ -36,7 +36,7 @@ public class PlayerTest {
 
     @Test
     @DisplayName("Add to number of games played")
-    void testAddToGamesPlayed() {
+    public void testAddToGamesPlayed() {
         Player player = new Player("abcd", "xxxxxxxxxxxxxxxx", 100, 0 ,0);
         assertEquals(player.getGamesPlayed(), 0);
         player.addToGamesPlayed();
