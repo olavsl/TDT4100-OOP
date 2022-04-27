@@ -77,8 +77,7 @@ public class FilehandlerTest {
         } catch (Exception e) {}
 
         players.add(new Player("abcd", "xxxx", 100, 0 ,0));
-        playerData.add(players.get(0).getUsername() + players.get(0).getHashedPassword() + 
-        players.get(0).getRating() + players.get(0).getRanking() + players.get(0).getGamesPlayed());
+        playerData.add(players.get(0).toString());
 
         try {
             this.filehandler.writePlayersToFile("playersTest.txt", players);
@@ -92,8 +91,7 @@ public class FilehandlerTest {
 
             Player player = testPlayers.get(0);
 
-            testPlayerData.add(player.getUsername() + player.getHashedPassword() + player.getRating()
-            + player.getRanking() + player.getGamesPlayed());
+            testPlayerData.add(player.toString());
 
             assertEquals(playerData, testPlayerData);
         } catch (Exception e) {}
