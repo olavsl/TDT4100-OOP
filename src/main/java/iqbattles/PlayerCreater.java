@@ -13,11 +13,11 @@ public class PlayerCreater {
     private ArrayList<String> players = new ArrayList<>();
     private Filehandler filehandler = new Filehandler();
 
-    public boolean createPlayer(String username, String password, String confirmedPassword) throws NoSuchAlgorithmException, IOException {
+    public String createPlayer(String username, String password, String confirmedPassword) throws NoSuchAlgorithmException, IOException {
 
         // Check that the chosen password matches confirmation-password
         if (!password.equals(confirmedPassword)) {
-            throw new IllegalArgumentException("The passwords does not match.");
+            return "passwordsNotMatching";
         }
 
         // Getting taken usernames with filehandler
@@ -26,7 +26,7 @@ public class PlayerCreater {
         // Check if username is already taken
         for (String player : this.players) {
             if (player.matches(username)) {
-                return false;
+                return "takenUsername";
             }
         }
         this.players.add(username);
@@ -39,7 +39,7 @@ public class PlayerCreater {
 
         addNewPlayerToFile(player);
 
-        return true;
+        return "createdPlayer";
     }
 
     public ArrayList<String> getTakenNamesFromFile(String fileName) throws IOException {

@@ -20,12 +20,15 @@ public class CreatePlayerController extends SceneController {
         String password = this.password.getText();
         String confirmedPassword = this.confirmedPassword.getText();
 
-        if (playerCreater.createPlayer(username, password, confirmedPassword)) {
+        if (playerCreater.createPlayer(username, password, confirmedPassword).equals("createdPlayer")) {
             output.setText("A user with the name \"" + username + "\" was created!");
             output.setStyle("-fx-text-fill: green;");
-        } else {
+        } else if (playerCreater.createPlayer(username, password, confirmedPassword).equals("passwordsNotMatching")) {
+            output.setText("Passwords are not matching!");
+            output.setStyle("-fx-text-fill: red;");
+        } else if (playerCreater.createPlayer(username, password, confirmedPassword).equals("takenUsername")) {
             output.setText("That username is already taken!");
             output.setStyle("-fx-text-fill: red;");
-        }
+        } 
     }
 }
