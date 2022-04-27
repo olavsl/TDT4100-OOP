@@ -28,6 +28,10 @@ public class PlayerTest {
         assertThrows(IllegalArgumentException.class, () -> {
             new Player(".abc", "xxxxxxxxxxxxxxxx", 100, 0, 0);
         });
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Player("ab d", "xxxxxxxxxxxxxxxx", 100, 0, 0);
+        });
     }
 
     @Test
