@@ -7,45 +7,45 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #c6dabf;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iqbattles.PlayerProfileController">
    <children>
-      <Label fx:id="displayUsername" layoutX="50.0" layoutY="41.0" textFill="#0d1f2d">
+      <Label fx:id="displayUsername" layoutX="35.0" layoutY="30.0" prefHeight="79.0" prefWidth="350.0" text="1234567891234567" textFill="#0d1f2d">
          <font>
-            <Font size="30.0" />
+            <Font size="40.0" />
          </font></Label>
-      <Label layoutX="50.0" layoutY="105.0" text="Rating" textFill="#0d1f2d">
+      <Label layoutX="82.0" layoutY="127.0" prefHeight="73.0" prefWidth="77.0" style="-fx-font-weight: bold;" text="IQ:" textFill="#0d1f2d">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <Label layoutX="50.0" layoutY="155.0" text="Games played" textFill="#0d1f2d">
+      <Label layoutX="50.0" layoutY="268.0" text="Games played" textFill="#0d1f2d">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold Italic" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="50.0" layoutY="130.0" text="Ranking" textFill="#0d1f2d">
+      <Label layoutX="50.0" layoutY="228.0" text="Ranking" textFill="#0d1f2d">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold Italic" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="408.0" layoutY="41.0" mnemonicParsing="false" onAction="#startGame" prefHeight="90.0" prefWidth="150.0" style="-fx-background-color: #048A81;" text="PLAY" textFill="#c6dabf">
+      <Button layoutX="408.0" layoutY="119.0" mnemonicParsing="false" onAction="#startGame" prefHeight="90.0" prefWidth="150.0" style="-fx-background-color: #048A81;" text="PLAY" textFill="WHITE">
          <font>
-            <Font size="30.0" />
+            <Font name="System Bold" size="30.0" />
          </font>
       </Button>
-      <Button layoutX="408.0" layoutY="188.0" mnemonicParsing="false" onAction="#switchToLeaderboard" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #0D1F2D;" text="Leaderboards" textFill="#c6dabf" />
+      <Button layoutX="408.0" layoutY="231.0" mnemonicParsing="false" onAction="#switchToLeaderboard" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #0D1F2D;" text="Leaderboards" textFill="#c6dabf" />
       <Button layoutX="529.0" layoutY="361.0" mnemonicParsing="false" onAction="#switchToStartPage" style="-fx-background-color: #0D1F2D;" text="Log out" textFill="#c6dabf" />
-      <Label fx:id="displayRating" layoutX="170.0" layoutY="108.0" prefHeight="20.0" prefWidth="77.0" textAlignment="CENTER" textFill="#0d1f2d">
+      <Label fx:id="displayRating" alignment="CENTER" layoutX="159.0" layoutY="128.0" prefHeight="48.0" prefWidth="77.0" style="-fx-font-weight: bold;" text="200" textAlignment="RIGHT" textFill="#048a81">
          <font>
-            <Font name="Yu Gothic Medium" size="16.0" />
+            <Font name="Monospaced Bold" size="60.0" />
          </font>
       </Label>
-      <Label fx:id="displayRanking" layoutX="170.0" layoutY="133.0" prefHeight="20.0" prefWidth="77.0" textAlignment="CENTER" textFill="#0d1f2d">
+      <Label fx:id="displayRanking" alignment="CENTER" layoutX="210.0" layoutY="228.0" prefHeight="20.0" prefWidth="77.0" text="123" textAlignment="CENTER" textFill="#0d1f2d">
          <font>
-            <Font name="Yu Gothic Medium" size="16.0" />
+            <Font name="Yu Gothic Medium" size="25.0" />
          </font>
       </Label>
-      <Label fx:id="displayGamesPlayed" layoutX="170.0" layoutY="158.0" prefHeight="20.0" prefWidth="77.0" textAlignment="CENTER" textFill="#0d1f2d">
+      <Label fx:id="displayGamesPlayed" alignment="CENTER" layoutX="210.0" layoutY="268.0" prefHeight="20.0" prefWidth="77.0" text="123" textAlignment="CENTER" textFill="#0d1f2d">
          <font>
-            <Font name="Yu Gothic Medium" size="16.0" />
+            <Font name="Yu Gothic Medium" size="25.0" />
          </font>
       </Label>
    </children>
