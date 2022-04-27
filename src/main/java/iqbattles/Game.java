@@ -68,6 +68,13 @@ public class Game {
     public int randRating(int playerRating) {
         Random rand = new Random();
         int opponentsRating = (int) (rand.nextGaussian() * 10 + playerRating);
+        
+        if (opponentsRating < 0) {
+            opponentsRating = 0;
+        } else if (opponentsRating > 200) {
+            opponentsRating = 200;
+        }
+
         this.opponentsRating = opponentsRating;
         return opponentsRating;
     }
@@ -111,29 +118,45 @@ public class Game {
         return opponentGameScore;
     }
 
-    public boolean victory(int playerScore, int opponentScore) {
-        return playerScore > opponentScore;
+    public String victory(int playerScore, int opponentScore) {
+
+        if (playerScore > opponentScore) {
+            return "victory";
+        } else if (playerScore < opponentScore) {
+            return "defeat";
+        } else if (playerScore == opponentScore) {
+            return "draw";
+        }
+
+        return "";
     }
 
     // Update players rating using Elos formula
-    public int newPlayerRating(int playerRating, int opponentRating, boolean victory) {
+    public int newPlayerRating(int playerRating, int opponentRating, String victory) {
         int possibleGain = 6;
         int newPlayerRating;
-        double expectedScore = 1 / (1 + Math.pow(10, (opponentRating - playerRating) / 40));
+        double expectedScore = 1 / (1 + Math.pow(10, (double) (opponentRating - playerRating) / 40));
 
-        if(victory) {
+        if(victory.equals("victory")) {
             newPlayerRating = (int) Math.round((playerRating + (possibleGain * (1 - expectedScore))));
-        } else if (!victory) {
+        } else if (victory.equals("defeat")) {
             newPlayerRating = (int) (playerRating + possibleGain * (0 - expectedScore));
-        } else {
+        } else if (victory.equals("draw")) {
             newPlayerRating = (int) (playerRating);
+        } else {
+            throw new IllegalStateException("Can't calculate new player rating");
         }
 
-        // TODO: Fikse expected score (alltid 0.5)
         System.out.println("Expected score: " + expectedScore);
         System.out.println("Previous rating: " + playerRating);
         System.out.println("Gain: " + possibleGain * expectedScore);
         System.out.println("New rating: " + newPlayerRating);
+
+        if (newPlayerRating < 0) {
+            newPlayerRating = 0;
+        } else if(newPlayerRating > 200) {
+            newPlayerRating = 200;
+        }
 
         return newPlayerRating;
     }

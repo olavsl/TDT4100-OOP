@@ -42,12 +42,15 @@ public class GameSummaryController extends SceneController {
         numCorrectAnswers.setText(String.valueOf(this.game.getNumCorrectAnswers()));
         gameScore.setText(String.valueOf(this.game.gameScore()));
         opponentScore.setText(String.valueOf(this.game.getOpponentGameScore()));
-        if (this.game.victory(this.game.gameScore(), this.game.getOpponentGameScore())) {
+        if (this.game.victory(this.game.gameScore(), this.game.getOpponentGameScore()).equals("victory")) {
             victory.setText("Victory!");
             victory.setStyle("-fx-text-fill: green;");
-        } else {
+        } else if (this.game.victory(this.game.gameScore(), this.game.getOpponentGameScore()).equals("defeat")) {
             victory.setText("Defeat!");
             victory.setStyle("-fx-text-fill: red;");
+        } else if (this.game.victory(this.game.gameScore(), this.game.getOpponentGameScore()).equals("draw")) {
+            victory.setText("Draw!");
+            victory.setStyle("-fx-text-fill: yellow");
         }
 
         this.player.setRating(this.game.newPlayerRating(this.player.getRating(), this.game.getOpponentRating(), 
