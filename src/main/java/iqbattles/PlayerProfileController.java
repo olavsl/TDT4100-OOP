@@ -1,24 +1,14 @@
 package iqbattles;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
-
-import javafx.event.ActionEvent;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.stage.Stage;
 
 public class PlayerProfileController extends SceneController {
     
     private Player player;
-
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     @FXML
     private Label displayUsername, displayRating, displayRanking, displayGamesPlayed;
@@ -42,39 +32,14 @@ public class PlayerProfileController extends SceneController {
     }
 
     // Start the game
-    public void startGame(ActionEvent event) throws IOException {
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/InGame.fxml"));
-        root = loader.load();
-
-        // Changing the data of the instance of InGameController belonging to InGame.fxml
-        InGameController igc = loader.getController();
-        igc.setPlayer(this.player);
-        igc.initialize();
-        igc.getGame().randRating(this.player.getRating());
-
-        // Changing the scene with current root to ensure the player data is transfered to the new scene
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    @FXML
+    private void startGame(ActionEvent event) throws IOException {
+        switchToInGame(event, this.player);
     }
 
-    public void switchToLeaderboard(ActionEvent event) throws IOException {
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Leaderboard.fxml"));
-        root = loader.load();
-
-        // Changing the data of the instance of GameSummaryController belonging to UserProfile.fxml
-        LeaderboardController lbc = loader.getController();
-        lbc.setPlayer(this.player);
-        lbc.displayLeaderboard();
-
-        // Changing the scene with current root to ensure the player data is transfered to the new scene
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    @FXML
+    private void switchToLeaderboard(ActionEvent event) throws IOException {
+        switchToLeaderboard(event, this.player);
     }
     
 }

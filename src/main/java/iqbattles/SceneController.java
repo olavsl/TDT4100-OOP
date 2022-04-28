@@ -31,7 +31,6 @@ public class SceneController {
 
     @FXML
     private void switchToLogIn(ActionEvent event) throws IOException {
-        System.out.println((getClass().getResource("answers/ans" + 2 + "-" + 3 + ".jpg")).toString());
         root = FXMLLoader.load(getClass().getResource("fxml/LogIn.fxml"));
         switchScene(event, stage, scene, root);
     }
@@ -55,14 +54,27 @@ public class SceneController {
     }
 
     @FXML
-    private void switchToInGame(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("fxml/InGame.fxml"));
+    protected void switchToInGame(ActionEvent event, Player player) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/InGame.fxml"));
+        root = loader.load();
+
+        InGameController igc = loader.getController();
+        igc.setPlayer(player);
+        igc.initialize();
+        igc.getGame().randRating(player.getRating());
+
         switchScene(event, stage, scene, root);
     }
 
     @FXML
-    private void switchToLeaderboard(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("fxml/Leaderboard.fxml"));
+    protected void switchToLeaderboard(ActionEvent event, Player player) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Leaderboard.fxml"));
+        root = loader.load();
+
+        LeaderboardController lbc = loader.getController();
+        lbc.setPlayer(player);
+        lbc.displayLeaderboard();
+
         switchScene(event, stage, scene, root);
     }
 
