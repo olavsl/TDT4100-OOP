@@ -37,8 +37,14 @@ public class SceneController {
     }
 
     @FXML
-    private void switchToPlayerProfile(ActionEvent event, Player player) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("fxml/PlayerProfile.fxml"));
+    protected void switchToPlayerProfile(ActionEvent event, Player player) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/PlayerProfile.fxml"));
+        root = loader.load();
+
+        PlayerProfileController upc = loader.getController();
+        upc.updateUserProfile(player);
+        upc.setPlayer(player);
+
         switchScene(event, stage, scene, root);
     }
 
