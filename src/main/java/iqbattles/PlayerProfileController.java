@@ -76,4 +76,5 @@ public class PlayerProfileController extends SceneController {
         stage.setScene(scene);
         stage.show();
     }
+    
 }

@@ -65,4 +65,5 @@ public class SceneController {
         root = FXMLLoader.load(getClass().getResource("fxml/GameSummary.fxml"));
         switchScene(event, stage, scene, root);
     }
+    
 }

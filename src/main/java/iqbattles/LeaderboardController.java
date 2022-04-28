@@ -72,4 +72,5 @@ public class LeaderboardController extends SceneController {
         stage.setScene(scene);
         stage.show();
     }
+    
 }

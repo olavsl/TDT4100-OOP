@@ -37,4 +37,5 @@ public class Task {
     public int getScore() {
         return this.score;
     }
+    
 }

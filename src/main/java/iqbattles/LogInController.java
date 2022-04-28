@@ -54,4 +54,5 @@ public class LogInController extends SceneController {
         stage.setScene(scene);
         stage.show();
     }
+    
 }
