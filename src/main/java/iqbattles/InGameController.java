@@ -1,6 +1,5 @@
 package iqbattles;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -50,7 +49,6 @@ public class InGameController extends SceneController {
 
     // Display the task with the current index
     public void showTask(int id) throws IOException {
-        // Get image
         Image imageTask = this.filehandler.getImage("tasks/task" + id + ".jpg");
 
         taskImage.setImage(imageTask);
@@ -74,9 +72,7 @@ public class InGameController extends SceneController {
                     ActionEvent actionEvent = new ActionEvent(event.getSource(), root);
                     try {
                         showNewTask(actionEvent);
-                    } catch (FileNotFoundException | InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
