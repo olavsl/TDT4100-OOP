@@ -3,11 +3,7 @@ package iqbattles;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -15,7 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class InGameController {
+public class InGameController extends SceneController {
 
     private Player player;
     private Tasks tasks;
@@ -24,8 +20,6 @@ public class InGameController {
     private int gameLength = 5;
     private int currentTask = 0;
 
-    private Stage stage;
-    private Scene scene;
     private Parent root;
 
     @FXML private ImageView taskImage;
@@ -112,24 +106,10 @@ public class InGameController {
     }
 
     // Show summary of the just-played match
-    public void switchToGameSummary(ActionEvent event) throws IOException {
-
+    @FXML
+    private void switchToGameSummary(ActionEvent event) throws IOException {
         this.game.setNumCorrectAnswers(this.game.getAnswers());
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/GameSummary.fxml"));
-        root = loader.load();
-
-        // Changing the data of the instance of GameSummaryController belonging to UserProfile.fxml
-        GameSummaryController gsc = loader.getController();
-        gsc.setPlayer(this.player);
-        gsc.setGame(this.game);
-        gsc.showSummary();
-
-        // Changing the scene with current root to ensure the player data is transfered to the new scene
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        switchToGameSummary(event, this.player, this.game);
     }
 
     // Setters

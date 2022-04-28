@@ -67,8 +67,15 @@ public class SceneController {
     }
 
     @FXML
-    private void switchToGameSummary(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("fxml/GameSummary.fxml"));
+    protected void switchToGameSummary(ActionEvent event, Player player, Game game) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/GameSummary.fxml"));
+        root = loader.load();
+
+        GameSummaryController gsc = loader.getController();
+        gsc.setPlayer(player);
+        gsc.setGame(game);
+        gsc.showSummary();
+
         switchScene(event, stage, scene, root);
     }
     
