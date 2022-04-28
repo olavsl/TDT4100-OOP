@@ -73,8 +73,7 @@ public class Filehandler implements Filehandling {
         ArrayList<String> lines = new ArrayList<>();
 
         for (Player player : players) {
-            String tempLine = player.getUsername() + " " + player.getHashedPassword() + " " + player.getRating() 
-            + " " + player.getRanking() + " " + player.getGamesPlayed();
+            String tempLine = player.toString();
             lines.add(tempLine);
         }
 
