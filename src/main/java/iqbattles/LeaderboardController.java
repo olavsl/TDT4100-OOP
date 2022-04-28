@@ -43,13 +43,14 @@ public class LeaderboardController extends SceneController {
         leaderboard.setItems(playerList);
     }
 
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-
     @FXML
     private void switchToPlayerProfile(ActionEvent event) throws IOException {
         switchToPlayerProfile(event, this.player);
+    }
+    
+    // Setter
+    public void setPlayer(Player player) {
+        this.player = player;
     }
     
 }

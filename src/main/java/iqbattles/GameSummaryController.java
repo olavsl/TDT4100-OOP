@@ -21,14 +21,6 @@ public class GameSummaryController extends SceneController {
     @FXML private Label newPlayerRating;
     @FXML private Label addedRating;
 
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-
-    public void setGame(Game game) {
-        this.game = game;
-    }
-
     public void showSummary() throws IOException {
         numCorrectAnswers.setText(String.valueOf(this.game.getNumCorrectAnswers()));
         gameScore.setText(String.valueOf(this.game.gameScore()));
@@ -57,6 +49,15 @@ public class GameSummaryController extends SceneController {
     @FXML
     private void switchToPlayerProfile(ActionEvent event) throws IOException {
         switchToPlayerProfile(event, this.player);
+    }
+
+    // Setters
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
     }
 
 }

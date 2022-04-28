@@ -25,12 +25,6 @@ public class PlayerProfileController extends SceneController {
         displayGamesPlayed.setText(Integer.toString(player.getGamesPlayed()));
     }
 
-    // Update player object belonging to this instance
-    public void setPlayer(Player player) {
-        this.player = new Player(player.getUsername(), player.getHashedPassword(), 
-        player.getRating(), player.getRanking(), player.getGamesPlayed());
-    }
-
     // Start the game
     @FXML
     private void startGame(ActionEvent event) throws IOException {
@@ -40,6 +34,12 @@ public class PlayerProfileController extends SceneController {
     @FXML
     private void switchToLeaderboard(ActionEvent event) throws IOException {
         switchToLeaderboard(event, this.player);
+    }
+
+    // Setter
+    public void setPlayer(Player player) {
+        this.player = new Player(player.getUsername(), player.getHashedPassword(), 
+        player.getRating(), player.getRanking(), player.getGamesPlayed());
     }
     
 }
