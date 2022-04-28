@@ -1,10 +1,11 @@
 package iqbattles;
 
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
-import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
 
 public class CreatePlayerController extends SceneController {
 

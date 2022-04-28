@@ -1,10 +1,10 @@
 package iqbattles;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
-
-import java.io.IOException;
 
 public class PlayerProfileController extends SceneController {
     

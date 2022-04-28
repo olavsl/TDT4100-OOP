@@ -1,10 +1,11 @@
 package iqbattles;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import java.util.ArrayList;
 import java.io.IOException;
 import javafx.event.ActionEvent;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 
 public class GameSummaryController extends SceneController {
     
