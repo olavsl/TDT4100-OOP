@@ -163,11 +163,6 @@ public class Game {
             throw new IllegalStateException("Can't calculate new player rating");
         }
 
-        System.out.println("Expected score: " + expectedScore);
-        System.out.println("Previous rating: " + playerRating);
-        System.out.println("Gain: " + possibleGain * expectedScore);
-        System.out.println("New rating: " + newPlayerRating);
-
         if (newPlayerRating < 0) {
             newPlayerRating = 0;
         } else if(newPlayerRating > 200) {
