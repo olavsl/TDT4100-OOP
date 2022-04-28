@@ -6,14 +6,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
-import javafx.scene.Node;
 
 public class LeaderboardController extends SceneController {
     
@@ -21,10 +16,6 @@ public class LeaderboardController extends SceneController {
     private ArrayList<Player> players = new ArrayList<>();
     private LeaderBoardUpdater leaderBoardUpdater = new LeaderBoardUpdater();
     private Filehandler filehandler = new Filehandler();
-    
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     // @FXML private ListView<String> leaderboard;
     @FXML private TableView<Player> leaderboard;
@@ -56,21 +47,9 @@ public class LeaderboardController extends SceneController {
         this.player = player;
     }
 
-    public void switchToUserProfile(ActionEvent event) throws IOException {
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/PlayerProfile.fxml"));
-        root = loader.load();
-
-        // Changing the data of the instance of GameSummaryController belonging to UserProfile.fxml
-        PlayerProfileController upc = loader.getController();
-        upc.setPlayer(this.player);
-        upc.updateUserProfile(this.player);
-
-        // Changing the scene with current root to ensure the player data is transfered to the new scene
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    @FXML
+    private void switchToPlayerProfile(ActionEvent event) throws IOException {
+        switchToPlayerProfile(event, this.player);
     }
     
 }
