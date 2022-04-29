@@ -46,10 +46,6 @@ public class Player{
     public void setRanking(int ranking) {
         this.ranking = ranking;
     }
-    
-    public void setGamesPlayed(int gamesPlayed) {
-        this.gamesPlayed = gamesPlayed;
-    }
 
     public void addToGamesPlayed() {
         this.gamesPlayed++;
