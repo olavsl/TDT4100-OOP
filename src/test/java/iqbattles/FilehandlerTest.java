@@ -4,10 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import javafx.scene.image.Image;
-
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class FilehandlerTest {
@@ -51,17 +48,6 @@ public class FilehandlerTest {
             assertEquals(lines, this.filehandler.readFromFile("playersTest.txt"));
         } catch (Exception e) {}
     }
-
-    // @Test
-    // @DisplayName("Test getting Images from directory")
-    // public void testGetImage() {
-    //     String path = System.getProperty("user.dir");
-    //     Image image = new Image(path + "/src/main/resources/iqbattles/testImage.jpg");
-
-    //     try {
-    //         assertEquals(image, this.filehandler.getImage("testImage.jpg"));
-    //     } catch (IOException e) {}
-    // }
 
     @Test
     @DisplayName("Test reading and writing Player-s from/to file")
