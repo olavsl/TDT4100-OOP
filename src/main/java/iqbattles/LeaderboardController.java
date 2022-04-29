@@ -31,8 +31,8 @@ public class LeaderboardController extends SceneController {
     public void displayLeaderboard() throws IOException {
         // Using LeaderBoardUpdater to sort players after rating, and then updating the file
         this.players = filehandler.getPlayersFromFile("players.txt");
+        leaderBoardUpdater.rankSort(this.players);
         this.playerList.addAll(this.players);
-        leaderBoardUpdater.rankSort(this.playerList);
         filehandler.writePlayersToFile("players.txt", this.players);
 
         // Filling table columns with player info

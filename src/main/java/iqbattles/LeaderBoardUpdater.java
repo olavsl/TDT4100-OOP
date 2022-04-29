@@ -1,16 +1,12 @@
 package iqbattles;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import javafx.collections.ObservableList;
-
-
-
 public class LeaderBoardUpdater {
 
-    public void rankSort(ObservableList<Player> players) {
-        // players.sort((x, y) -> Integer.compare(y.getRating(), x.getRating()));
+    public void rankSort(ArrayList<Player> players) {
 
         Collections.sort(players, new Comparator<Player>() {
             public int compare(Player player1, Player player2) {
