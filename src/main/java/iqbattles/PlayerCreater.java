@@ -33,6 +33,8 @@ public class PlayerCreater {
 
         // Encrypting given password with "Secure Hashing Algorithm-256"
         MessageDigest md = MessageDigest.getInstance("SHA-256");
+
+        // Getting the bytes of the written password to input to the hashing function. Then convert the returned byte array to a hex string
         String hashedPassword = ToHexString.toHexString(md.digest(password.getBytes(StandardCharsets.UTF_8)));
 
         Player player = new Player(username, hashedPassword, 100, 0, 0);

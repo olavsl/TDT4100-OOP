@@ -107,6 +107,7 @@ public class InGameController extends SceneController {
         switchToGameSummary(event, this.player, this.game);
     }
 
+    // If the player runs out of time on the last task, the "End Game"-button shows up
     public void showEndGameBtn() {
         this.game.endGame();
         endGameBtn.setOpacity(1);

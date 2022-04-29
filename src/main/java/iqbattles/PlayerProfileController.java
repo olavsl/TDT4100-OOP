@@ -13,11 +13,6 @@ public class PlayerProfileController extends SceneController {
     @FXML
     private Label displayUsername, displayRating, displayRanking, displayGamesPlayed;
 
-    /**
-     * Display player info on user profile
-     * 
-     * @param player
-     */
     public void updateUserProfile(Player player) {
         displayUsername.setText(player.getUsername());
         displayRating.setText(Integer.toString(player.getRating()));

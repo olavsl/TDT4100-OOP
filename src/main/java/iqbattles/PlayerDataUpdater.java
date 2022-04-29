@@ -7,6 +7,7 @@ public class PlayerDataUpdater {
     
     private Filehandler filehandler = new Filehandler();
 
+    // Getting players from file, except the current players information is to be swapped with that players information from the database
     public ArrayList<Player> getPlayersFromFile(String fileName, Player player) throws IOException {
         ArrayList<Player> players = new ArrayList<>();
         ArrayList<String> playerInfo = this.filehandler.readFromFile(fileName);

@@ -15,20 +15,25 @@ public class CountDownTimer extends TimerTask {
         this.time = time;
     };
 
+    // Clock
     @Override
     public void run() {
         this.time--;
 
+        // Stops main-thread from interfering with the conditional functions of the parallell Thread
         if (Thread.currentThread().getName().equals("Timer-0")) {
             this.cancel();
         }
 
+        // Checks if the player didn't answer in 60 seconds, and if so moves on to the next task 
         if (this.time == 0 && this.igc.getGame().getAnswers().size() == this.taskCount) {
+            // Stops thread
             if (this.igc.getGame().getAnswers().size() == 3) {
                 this.cancel();
                 this.igc.showEndGameBtn();
             } else {
                 try {
+                    // Show new task and set empty answer
                     this.igc.setAnswer(0);
                     this.igc.showNewTask(null);
                 } catch (InterruptedException | IOException e) {

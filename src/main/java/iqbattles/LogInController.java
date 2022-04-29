@@ -23,6 +23,8 @@ public class LogInController extends SceneController {
     public void logIn(ActionEvent event) throws NoSuchAlgorithmException, FileNotFoundException, IOException {
         String username = this.username.getText();
         String password = this.password.getText();
+        
+        // Runs the logIn-function. Then checks if an actual Player-object is returned.
         Player player = logInVerifier.LogIn(username, password, "players.txt");
 
         if (player != null) {

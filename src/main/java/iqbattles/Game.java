@@ -90,6 +90,7 @@ public class Game {
         return opponentsRating;
     }
 
+    // Checks that the opponents rating is within allowed range and not to far from the players rating
     public boolean allowedRating(int playerRating, int opponentRating) {
         if (opponentRating < 0 || opponentRating > 200) {
             return false;
@@ -102,7 +103,7 @@ public class Game {
         return true;
     }
 
-    // Individual task score
+    // Calculating individual task score base on difficulty and time it took for player to answer
     public double taskScore(int difficulty, int answerTime) {
         if (answerTime < 0) {
             throw new IllegalArgumentException("Can't divide by zero!");
@@ -116,7 +117,7 @@ public class Game {
         return difficulty * multiplier;
     }
 
-    // Total game score
+    // Calculating total game score
     public int gameScore() {
         int gameScore = 0;
 
@@ -130,6 +131,8 @@ public class Game {
         return gameScore;
     };
 
+    // Calculating opponents probability of being correct and answer time with a function of the form f(x) = 1/(1+10^((1-x)/1))
+    // that matches the percentile distribution of the IQ of humans.
     public int opponentGameScore(int opponentRating, Tasks tasks) {
         int opponentGameScore = 0;
         double probabilityOfBeingCorrect = 1 / (1 + Math.pow(100, (100 - opponentRating) / 40));
@@ -147,6 +150,7 @@ public class Game {
         return opponentGameScore;
     }
 
+    // Check which player wins
     public String victory(int playerScore, int opponentScore) {
 
         if (playerScore > opponentScore) {

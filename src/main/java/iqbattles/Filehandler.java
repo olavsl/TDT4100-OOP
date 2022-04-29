@@ -55,6 +55,7 @@ public class Filehandler implements Filehandling {
         return new Image(getClass().getResource(fileName).toString());
     }
 
+    // Gets strings of player data, and turns them into Player-objects which are returned in an ArrayList
     public ArrayList<Player> getPlayersFromFile(String fileName) throws IOException {
         ArrayList<Player> players = new ArrayList<>();
         ArrayList<String> playerInfo = readFromFile(fileName);
@@ -69,6 +70,7 @@ public class Filehandler implements Filehandling {
         return players;
     }
 
+    // Turns player objects into strings of data, and passes those strings to the writeToFile-function
     public void writePlayersToFile(String fileName, ArrayList<Player> players) throws FileNotFoundException {
         ArrayList<String> lines = new ArrayList<>();
 
