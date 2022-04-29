@@ -23,7 +23,7 @@ public class Player{
 
     // Setters
     public void setUsername(String username) {
-        //Innkapsling av tilstand
+        // Encapsulation of allowed usernames
         if (username.length() < 4 || username.length() > 16) {
             throw new IllegalArgumentException("Username does not match allowed length!");
         }

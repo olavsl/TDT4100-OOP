@@ -86,10 +86,7 @@ public class InGameController extends SceneController {
         // Check if the game should end and show Game Summary on next page instead
         if (this.currentTask == this.game.getGameLength()) {
             try {
-                this.game.setAnswerTime(this.game.getTimer().getTime());
-                this.game.stopTimer();
-                this.game.gameScore();
-                this.game.opponentGameScore(this.game.getOpponentRating(), this.tasks);
+                this.game.endGame();
                 switchToGameSummary(event);
                 return;
             } catch (IOException e) {
@@ -98,8 +95,7 @@ public class InGameController extends SceneController {
         }
         showTask(tasks.getTask(this.currentTask).getID());
         
-        this.game.setAnswerTime(this.game.getTimer().getTime());
-        this.game.resetTimer();
+        this.game.newTask();
     }
 
     // Show summary of the just-played match

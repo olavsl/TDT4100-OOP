@@ -35,6 +35,18 @@ public class Game {
         this.timer.cancel();
         Thread.currentThread().interrupt();
     }
+
+    public void newTask() {
+        setAnswerTime(this.task.getTime());
+        resetTimer();
+    }
+
+    public void endGame() {
+        setAnswerTime(this.task.getTime());
+        stopTimer();
+        gameScore();
+        opponentGameScore(getOpponentRating(), this.tasks);
+    };
     
     // Randomize order of correct answers
     public ArrayList<Integer> randomizeCorrectAnswers() {
