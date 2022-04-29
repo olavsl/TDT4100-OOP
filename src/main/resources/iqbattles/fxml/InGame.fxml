@@ -28,5 +28,7 @@
       <fx:reference source="ansImage4" />
       <fx:reference source="ansImage5" />
 
+      <Button fx:id="endGameBtn" layoutX="498.0" layoutY="361.0" opacity="0.0" mnemonicParsing="false" style="-fx-background-color: #0D1F2D;" text="END GAME" textFill="#c6dabf" />
+
    </children>
 </AnchorPane>

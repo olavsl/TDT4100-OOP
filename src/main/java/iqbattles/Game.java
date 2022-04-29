@@ -23,7 +23,8 @@ public class Game {
         this.gameLength = tasks.getTasks().size();
     }
 
-    public void startTimer() {
+    public void startTimer(InGameController igc) {
+        this.task.setInGameController(igc);
         this.timer.scheduleAtFixedRate(this.task, 0, 1000);
     }
 
@@ -222,7 +223,7 @@ public class Game {
         return this.numCorrectAnswers;
     }
 
-    public CountDownTimer getTimer() {
+    public CountDownTimer getCountDownTimer() {
         return this.task;
     }
 

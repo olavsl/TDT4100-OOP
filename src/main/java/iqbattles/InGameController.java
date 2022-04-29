@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -22,6 +23,7 @@ public class InGameController extends SceneController {
 
     private Parent root;
 
+    @FXML private Button endGameBtn;
     @FXML private ImageView taskImage;
 
     // Takes in ImageView elements from fxml doc as an ArrayList. The ArrayList is created in the fxml file.
@@ -39,7 +41,7 @@ public class InGameController extends SceneController {
         showTask(this.tasks.getTask(this.currentTask).getID());
 
         // Start timer
-        this.game.startTimer();
+        this.game.startTimer(this);
     }
 
     // Update player object belonging to this instance
@@ -105,9 +107,36 @@ public class InGameController extends SceneController {
         switchToGameSummary(event, this.player, this.game);
     }
 
+    public void showEndGameBtn() {
+        this.game.endGame();
+        endGameBtn.setOpacity(1);
+        endGameBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                ActionEvent actionEvent = new ActionEvent(event.getSource(), root);
+                    try {
+                        switchToGameSummary(actionEvent);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+            }
+        });
+
+        // Diable onAction function for answer options
+        for (int i = 0; i < ansImageList.size(); i++) {
+            ansImageList.get(i).setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    return;
+                }
+            });
+        }
+    }
+
     // Setters
     public void setAnswer(int i) {
         this.game.setAnswer(i);
+        this.game.getCountDownTimer().addToTaskCount();
     }
 
     public InGameController getInGameController() {
