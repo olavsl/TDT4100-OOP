@@ -139,13 +139,13 @@ public class InGameController extends SceneController {
         this.game.getCountDownTimer().addToTaskCount();
     }
 
-    public InGameController getInGameController() {
-        return this;
-    }
-
     // Getters
     public Game getGame() {
         return this.game;
+    }
+
+    public InGameController getInGameController() {
+        return this;
     }
     
 }

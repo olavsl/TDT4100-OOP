@@ -29,7 +29,6 @@ public class CountDownTimer extends TimerTask {
                 this.igc.showEndGameBtn();
             } else {
                 try {
-                    System.out.println(this.igc.getGame().getAnswers().size() + " | " + this.taskCount);
                     this.igc.setAnswer(0);
                     this.igc.showNewTask(null);
                 } catch (InterruptedException | IOException e) {
