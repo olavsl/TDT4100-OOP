@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class LeaderBoardUpdater {
+public class RankSorter {
 
     public void rankSort(ArrayList<Player> players) {
 

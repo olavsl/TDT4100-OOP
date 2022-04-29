@@ -15,7 +15,7 @@ public class LeaderboardController extends SceneController {
     
     private Player player;
     private ArrayList<Player> players = new ArrayList<>();
-    private LeaderBoardUpdater leaderBoardUpdater = new LeaderBoardUpdater();
+    private RankSorter rankSorter = new RankSorter();
     private Filehandler filehandler = new Filehandler();
 
     // @FXML private ListView<String> leaderboard;
@@ -31,7 +31,7 @@ public class LeaderboardController extends SceneController {
     public void displayLeaderboard() throws IOException {
         // Using LeaderBoardUpdater to sort players after rating, and then updating the file
         this.players = filehandler.getPlayersFromFile("players.txt");
-        leaderBoardUpdater.rankSort(this.players);
+        rankSorter.rankSort(this.players);
         this.playerList.addAll(this.players);
         filehandler.writePlayersToFile("players.txt", this.players);
 
