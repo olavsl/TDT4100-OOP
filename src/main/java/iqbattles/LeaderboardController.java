@@ -28,7 +28,7 @@ public class LeaderboardController extends SceneController {
     // Sort players array
     public void displayLeaderboard() throws IOException {
         // Using RankSorter to sort players after rating, and then updating the file
-        this.players = rankSorter.rankSort();
+        this.players = rankSorter.rankSort("players.txt");
         this.playerList.addAll(this.players);
 
         // Filling table columns with player info

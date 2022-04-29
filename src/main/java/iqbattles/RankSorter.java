@@ -9,10 +9,10 @@ public class RankSorter {
 
     private Filehandler filehandler = new Filehandler();
 
-    public ArrayList<Player> rankSort() throws IOException {
+    public ArrayList<Player> rankSort(String fileName) throws IOException {
         ArrayList<Player> sortedPlayers = new ArrayList<>();
 
-        sortedPlayers = filehandler.getPlayersFromFile("players.txt");
+        sortedPlayers = filehandler.getPlayersFromFile(fileName);
 
         Collections.sort(sortedPlayers, new Comparator<Player>() {
             public int compare(Player player1, Player player2) {
@@ -24,7 +24,7 @@ public class RankSorter {
             sortedPlayers.get(i).setRanking(i + 1);
         }
 
-        filehandler.writePlayersToFile("players.txt", sortedPlayers);
+        filehandler.writePlayersToFile(fileName, sortedPlayers);
 
         return sortedPlayers;
     }
