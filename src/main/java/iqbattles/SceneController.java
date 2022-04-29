@@ -16,6 +16,7 @@ public class SceneController {
     private Scene scene;
     private Parent root;
 
+    // Basis function for creating a new Scene and showing it for the user
     private void switchScene(ActionEvent event, Stage stage, Scene scene, Parent root) {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -34,6 +35,8 @@ public class SceneController {
         root = FXMLLoader.load(getClass().getResource("fxml/LogIn.fxml"));
         switchScene(event, stage, scene, root);
     }
+
+    // Methods that take in Player- or Game-objects do so to bring over objects of the same instance to the new Scene.
 
     @FXML
     protected void switchToPlayerProfile(ActionEvent event, Player player) throws IOException {
