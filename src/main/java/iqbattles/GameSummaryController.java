@@ -20,29 +20,37 @@ public class GameSummaryController extends SceneController {
     @FXML private Label opponentScore;
     @FXML private Label victory;
     @FXML private Label newPlayerRating;
+    @FXML private Label opponentRating;
     @FXML private Label addedRating;
 
+    // Fill all Labels with information about the just-played game
     public void showSummary() throws IOException {
         numCorrectAnswers.setText(String.valueOf(this.game.getNumCorrectAnswers()));
         gameScore.setText(String.valueOf(this.game.gameScore()));
         opponentScore.setText(String.valueOf(this.game.getOpponentGameScore()));
-        if (this.game.victory(this.game.gameScore(), this.game.getOpponentGameScore()).equals("victory")) {
+        int newPlayerRatingNum = this.game.newPlayerRating(this.player.getRating(), this.game.getOpponentRating(), 
+        this.game.victory(this.game.gameScore(), this.game.getOpponentGameScore()));
+        String victoryString = this.game.victory(this.game.gameScore(), this.game.getOpponentGameScore());
+        if (victoryString.equals("victory")) {
             victory.setText("Victory!");
             victory.setStyle("-fx-text-fill: green;");
-        } else if (this.game.victory(this.game.gameScore(), this.game.getOpponentGameScore()).equals("defeat")) {
+            addedRating.setText("+" + (newPlayerRatingNum - this.player.getRating()));
+        } else if (victoryString.equals("defeat")) {
             victory.setText("Defeat!");
             victory.setStyle("-fx-text-fill: red;");
-        } else if (this.game.victory(this.game.gameScore(), this.game.getOpponentGameScore()).equals("draw")) {
+            addedRating.setText(String.valueOf(newPlayerRatingNum - this.player.getRating()));
+        } else if (victoryString.equals("draw")) {
             victory.setText("Draw!");
             victory.setStyle("-fx-text-fill: yellow");
+            addedRating.setText("+0");
         }
 
-        this.player.setRating(this.game.newPlayerRating(this.player.getRating(), this.game.getOpponentRating(), 
-        this.game.victory(this.game.gameScore(), this.game.getOpponentGameScore())));
+        this.player.setRating(newPlayerRatingNum);
+        this.player.addToGamesPlayed();
 
+        opponentRating.setText(String.valueOf(this.game.getOpponentRating()));
         newPlayerRating.setText(String.valueOf(this.player.getRating()));
 
-        this.player.addToGamesPlayed();
         this.players = playerDataUpdater.getPlayersFromFile("players.txt", this.player);
         filehandler.writePlayersToFile("players.txt", this.players);
     }
