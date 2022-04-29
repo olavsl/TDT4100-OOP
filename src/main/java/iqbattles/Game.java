@@ -16,7 +16,7 @@ public class Game {
     private int gameLength;
 
     private CountDownTimer task = new CountDownTimer(60);
-    private Timer timer = new Timer(false);
+    private Timer timer = new Timer();
 
     public Game(Tasks tasks) {
         this.tasks = tasks;
